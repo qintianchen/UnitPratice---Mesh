@@ -104,7 +104,7 @@ namespace UnityEngine.UI
 
 			if (mesh == null)
 			{
-				mesh = new Mesh();
+				mesh = new Mesh(){name = "QShadow_Cached_Mesh"};
 			}
 
 			vh.FillMesh(mesh);

@@ -1,17 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Test : MonoBehaviour
 {
-	private int direction = 1;
-	private void Update()
+	public delegate void MyAction();
+	public event MyAction action;
+	private void Start()
 	{
-		transform.localPosition += new Vector3(0.8f * direction, 0);
-		if (transform.localPosition.x > 150)
-			direction = -1;
-		else if (transform.localPosition.x < -150)
-			direction = 1;
+		gameObject.AddComponent<Test2>();
+	}
+
+	void Print1()
+	{
+		Debug.Log("H 1");
+	}
+
+	void Print2()
+	{
+		Debug.Log("H 2");
+	}
+
+	public void InvokeAction()
+	{
+		action();
+	}
+}
+
+public class Test2 : MonoBehaviour
+{
+	private void Start()
+	{
+		var test = gameObject.GetComponent<Test>();
+
+		test.InvokeAction();
+	}
+
+	void Print1()
+	{
+		Debug.Log("Q 1");
+	}
+
+	void Print2()
+	{
+		Debug.Log("Q 2");
 	}
 }

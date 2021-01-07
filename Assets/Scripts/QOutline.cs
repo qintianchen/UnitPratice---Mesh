@@ -18,7 +18,7 @@ namespace UnityEngine.UI
 
 			if (mesh == null)
 			{
-				mesh = new Mesh();
+				mesh = new Mesh(){name = "QOutline_Cached_Mesh"};
 			}
 
 			vh.FillMesh(mesh);

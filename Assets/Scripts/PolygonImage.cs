@@ -4,13 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 多边形图片
+/// </summary>
 public class PolygonImage : MaskableGraphic
 {
+    [Tooltip("多边形半径")]
     [Range(0.1f, 1000)] public float radius = 100;
+    [Tooltip("多边形的顶点数（非实际绘制的顶点数量）")]
     [Range(3, 20)] public int verts = 8;
+    [Tooltip("旋转偏移")]
     public float offset = 0;
+    [Tooltip("动画时长")]
     public float tweenTime = 1;
-
+    [Tooltip("每条径的长度")]
     [SerializeField] private float[] sizes;
     
     public bool SetSize(int index, float value)
